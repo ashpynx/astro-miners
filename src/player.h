@@ -16,16 +16,6 @@ typedef enum
 
 
 
-typedef struct 
-{
-    GameVector Position; 
-    GameVector Size;
-    GameVector Speed;
-    PlayerState state;
-    int hp;
-    long coin;
-
-}Player;
 
 
 
