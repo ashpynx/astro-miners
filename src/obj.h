@@ -87,8 +87,12 @@ struct PlayerExtra
 
 typedef union
 {
-
-
+    struct FrameExtra;
+    struct ButtonExtra;
+    struct TextExtra;
+    struct MovableExtra;
+    struct FixedExtra;
+    struct PlayerExtra;
 }ObjExtras;
 
 typedef struct 

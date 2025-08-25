@@ -17,14 +17,18 @@ typedef struct
 
 {
 
-    float ProcessValue;
+
+    union {
+        GameVector Size,Move;
+        float Transparency;
+    }ProcessValue;
     long id;
     ProcessType type;
 
 
 }Process;
 
-bool Process_Execute();
+bool Process_Execute(Process *pr,Explorer *exp);
 
 
 #endif
