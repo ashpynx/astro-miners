@@ -24,7 +24,7 @@ typedef struct
     }ProcessValue;
     long id;
     ProcessType type;
-
+    int processCount;
 
 }Process;
 
