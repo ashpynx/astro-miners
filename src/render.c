@@ -1,4 +1,5 @@
 #include "render.h"
+#include "obj.h"
 
 
 
@@ -37,4 +38,28 @@ bool Process_Execute(Process *pr,Explorer *exp)
     }
     (pr->processCount)--;
     return true;
+}
+
+void ChangeTransparency(Object *obj,float val)
+{
+    switch(obj->core.type)
+
+    {
+        case TYPE_FIXED:
+            obj->extra.fixed.Transparency -=val;
+            break;
+        case TYPE_FRAME:
+            
+            obj->extra.frame.BackgroundTransparency -=val;
+            break;
+        case TYPE_MOVABLE:
+            obj->extra.movable.Transparency -=val;
+            break;
+        default:
+            return;
+
+
+    }
+
+    return;
 }

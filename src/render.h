@@ -8,7 +8,7 @@ typedef enum
 
     PROCESS_MOVE,
     PROCESS_SIZE,
-    PROCESS_TRANSPARENCY
+    PROCESS_TRANSPARENCY            /*WARNING!Transparency change over time is limited ony to fixed,movable and frame.*/
 
 }ProcessType;
 

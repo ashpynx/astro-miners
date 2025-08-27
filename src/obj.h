@@ -25,7 +25,7 @@ typedef struct
 
 typedef enum 
 {
-    
+    TYPE_NONE =0, 
     TYPE_FRAME,
     TYPE_BUTTON,
     TYPE_TEXT,
@@ -87,12 +87,12 @@ struct PlayerExtra
 
 typedef union
 {
-    struct FrameExtra;
-    struct ButtonExtra;
-    struct TextExtra;
-    struct MovableExtra;
-    struct FixedExtra;
-    struct PlayerExtra;
+    struct FrameExtra frame;
+    struct ButtonExtra button;
+    struct TextExtra text;
+    struct MovableExtra movable;
+    struct FixedExtra fixed;
+    struct PlayerExtra player;
 }ObjExtras;
 
 typedef struct 
@@ -102,7 +102,7 @@ typedef struct
 
     objtype type;
 
-}CoreObj;  /*Core Materials of a physical object, rather than an ui object.*/
+}CoreObj;  /*Core Materials of a physical object*/
 
 typedef struct 
 {
@@ -119,8 +119,10 @@ typedef struct
     Object arr[OBJ_COUNT];
     long id[OBJ_COUNT];
     long parentid[OBJ_COUNT];
-
+    int otop;   /*total for arr[]*/
+    int itop;   /*top for id[]*/
 }Explorer;
 
+bool Object_Create(Explorer *exp,objtype type);
 
 #endif
