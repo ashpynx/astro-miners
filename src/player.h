@@ -3,6 +3,7 @@
 #define PLAYER_H
 
 #include "obj.h"
+#include "shop.h"
 
 
 typedef enum
@@ -15,8 +16,11 @@ typedef enum
 }PlayerState;
 
 
-
-
+typedef struct Equips{
+    struct Pickaxe pickaxe;
+    struct Weapon weapon;
+    struct Armor armor;
+}Equips;
 
 
 #endif
