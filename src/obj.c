@@ -15,5 +15,21 @@ bool Object_Create(Explorer *exp,objtype type)
     return true;
 }
 
+bool Object_Delete(Explorer *exp,long id)
+{
+    if(exp->id[id] != 0 && exp->arr[exp->id[id]].core.type != TYPE_NONE)
+        exp->arr[exp->id[id]].core.type= TYPE_NONE;
+    else 
+    return false;
+    return true;
+}
+
+objtype Object_GetType(Explorer *exp,long id)
+{
+    if(exp->id[id]!=0)
+        return exp->arr[exp->id[id]].core.type;
 
 
+    return TYPE_NONE;
+
+}

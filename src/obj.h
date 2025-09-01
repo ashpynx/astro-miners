@@ -124,5 +124,7 @@ typedef struct
 }Explorer;
 
 bool Object_Create(Explorer *exp,objtype type);
+bool Object_Delete(Explorer *exp,long id);
 
+objtype Object_GetType(Explorer *exp,long id);
 #endif
