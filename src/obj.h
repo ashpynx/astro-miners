@@ -25,14 +25,12 @@ typedef struct
 
 typedef enum 
 {
-    TYPE_NONE =0, 
+    
     TYPE_FRAME,
     TYPE_BUTTON,
     TYPE_TEXT,
-    TYPE_MOVABLE,
-    TYPE_FIXED,
-    TYPE_PLAYER
-
+    TYPE_PLAYER,
+    TYPE_PLANET
 }objtype;
 
 struct FrameExtra
@@ -59,19 +57,26 @@ struct TextExtra
     char *text;
 };
 
-struct MovableExtra
+typedef enum
 {
-    GameVector Speed;
-    bool cancollide;
-    short Transparency;
+    Iron,
+    Gold,
+    Diamond
+}OreType;
+
+struct Mine
+{
+    
+    OreType type;
+
+    float weight;
 
 };
 
-struct FixedExtra
+struct PlanetExtra
 {
-    
-    bool cancollide;
-    short Transparency;
+    Mine Ores[3]; /*MAXIMUM 3 ORES IN ONE PLANET*/
+
 };
 
 
@@ -87,12 +92,11 @@ struct PlayerExtra
 
 typedef union
 {
-    struct FrameExtra frame;
-    struct ButtonExtra button;
-    struct TextExtra text;
-    struct MovableExtra movable;
-    struct FixedExtra fixed;
-    struct PlayerExtra player;
+    struct FrameExtra;
+    struct ButtonExtra;
+    struct TextExtra;
+    struct PlayerExtra;
+    struct PlanetExtra;
 }ObjExtras;
 
 typedef struct 
@@ -102,7 +106,7 @@ typedef struct
 
     objtype type;
 
-}CoreObj;  /*Core Materials of a physical object*/
+}CoreObj;  /*Core Materials of a physical object, rather than an ui object.*/
 
 typedef struct 
 {
@@ -119,12 +123,8 @@ typedef struct
     Object arr[OBJ_COUNT];
     long id[OBJ_COUNT];
     long parentid[OBJ_COUNT];
-    int otop;   /*total for arr[]*/
-    int itop;   /*top for id[]*/
+
 }Explorer;
 
-bool Object_Create(Explorer *exp,objtype type);
-bool Object_Delete(Explorer *exp,long id);
 
-objtype Object_GetType(Explorer *exp,long id);
 #endif
