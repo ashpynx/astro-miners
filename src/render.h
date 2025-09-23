@@ -2,6 +2,7 @@
 #define RENDER_H
 
 #include "obj.h"
+#include <raylib.h>
 
 typedef enum
 {
@@ -11,6 +12,7 @@ typedef enum
     PROCESS_TRANSPARENCY            /*WARNING!Transparency change over time is limited ony to fixed,movable and frame.*/
 
 }ProcessType;
+
 
 
 typedef struct

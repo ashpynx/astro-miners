@@ -1,8 +1,8 @@
 #ifndef OBJ_H
 #define OBJ_H
 
-#define OBJ_COUNT 1024 
-
+#define OBJ_COUNT 256 
+#define UI_COUNT 128
 #include <raylib.h>
 #include "ui.h"
 #include "player.h"
@@ -38,6 +38,7 @@ struct FrameExtra
 
     Color BackroundColor; 
     short BackgroundTransparency;
+    long parentid;
 };
 
 struct ButtonExtra 
@@ -47,7 +48,7 @@ struct ButtonExtra
     short TextTransparency;
     Color TextColor;
     char *text;
-
+    long parentid;
 };
 
 struct TextExtra 
@@ -55,6 +56,7 @@ struct TextExtra
     Color TextColor;
     short TextTransparency;
     char *text;
+    long parentid;
 };
 
 typedef enum
@@ -120,9 +122,10 @@ typedef struct
 typedef struct 
 {
 
-    Object arr[OBJ_COUNT];
-    long id[OBJ_COUNT];
-    long parentid[OBJ_COUNT];
+    Object obj[OBJ_COUNT];
+    Object UI[UI_COUNT];
+
+    long objid[OBJ_COUNT];
 
 }Explorer;
 
