@@ -2,6 +2,6 @@
 #define MAIN_H
 
 #include <raylib.h>
-
+#include "obj.h"
 
 #endif

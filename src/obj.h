@@ -25,7 +25,7 @@ typedef struct
 
 typedef enum 
 {
-    
+    TYPE_NONE, 
     TYPE_FRAME,
     TYPE_BUTTON,
     TYPE_TEXT,
@@ -77,7 +77,7 @@ struct Mine
 
 struct PlanetExtra
 {
-    Mine Ores[3]; /*MAXIMUM 3 ORES IN ONE PLANET*/
+   struct Mine Ores[3]; /*MAXIMUM 3 ORES IN ONE PLANET*/
 
 };
 
@@ -129,5 +129,6 @@ typedef struct
 
 }Explorer;
 
+Object * Obj_Create(objtype type,Explorer *exp);
 
 #endif
