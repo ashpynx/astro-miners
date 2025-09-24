@@ -14,6 +14,9 @@ typedef enum
 }ProcessType;
 
 
+/*Will Remake Process Stuff...*/
+
+
 
 typedef struct
 
