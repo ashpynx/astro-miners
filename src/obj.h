@@ -105,7 +105,7 @@ typedef struct
 {
     
     GameVector Position,Size;
-
+    long id;
     objtype type;
 
 }CoreObj;  /*Core Materials of a physical object, rather than an ui object.*/
@@ -130,5 +130,5 @@ typedef struct
 }Explorer;
 
 Object * Obj_Create(objtype type,Explorer *exp);
-
+bool Obj_Remove(long id,Explorer *exp);
 #endif
